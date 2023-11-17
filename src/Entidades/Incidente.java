@@ -9,9 +9,6 @@
  */
 package Entidades;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author GAMER
@@ -22,13 +19,23 @@ public class Incidente extends Problema
     private String tipo;
     private String hora;
     private String descripcion;
-     private List<String> imagePaths;
+     private String riesgo;
+     private String testigo;
+  private String estado;
+    public String getTestigo() {
+        return testigo;
+    }
+
+    public void setTestigo(String testigo) {
+        this.testigo = testigo ;
+    }
+     
 //private String DatosMostrar;
 
    @Override
-   public String getDatosMostrar() {
-        return "Tipo: "+tipo+" - HORA: "+hora+" - Fecha: "+fecha;
-    }
+  public String getDatosMostrar() {
+    return "Tipo: " + tipo + " - Hora: " + hora + " - Fecha: " + fecha + " - Testigo: " + testigo +" - Estado: "+ estado ;
+}
     
 
     public String getHora() {
@@ -63,28 +70,41 @@ public class Incidente extends Problema
         this.tipo = tipo;
     }
 
-    public Incidente(String fecha, String tipo,String descripcion,String hora) {
+    public Incidente(String fecha, String tipo,String descripcion,String hora,String testigo) {
         this.fecha = fecha;
         this.tipo = tipo;
         this.hora=hora;
         this.descripcion=descripcion;
-        this.imagePaths = new ArrayList<>();
+        this.testigo=testigo;
+        
     }
-      public List<String> getImagePaths() {
-        return imagePaths;
+     public String getRiesgo() {
+        //return riesgo;
+        return riesgo != null ? riesgo : "por escoger";
     }
 
-    public void addImagePath(String imagePath) {
-        imagePaths.add(imagePath);
+    public void setRiesgo(String riesgo) {
+        this.riesgo = riesgo;
     }
     
 
+    public String getEstado() {
+        return estado!= null ? estado : "por determinar";
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
+    
+    
+    
+    
+    
     @Override
     public void registra() {
         
     }
-
-    
     
     
 }
